@@ -1,11 +1,14 @@
 class CreateGroups < ActiveRecord::Migration
   def change
-    create_table :groups do |t|
+    create_table :people do |t|
       t.string :name
-      t.string :room
-      t.string :task
+      t.string :email
+      t.string :tel
+      t.references :group, index: true, foreign_key: true
+      t.boolean :sensei
 
       t.timestamps null: false
     end
   end
+  
 end

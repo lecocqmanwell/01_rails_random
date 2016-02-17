@@ -1,11 +1,9 @@
 class CreatePeople < ActiveRecord::Migration
   def change
-    create_table :people do |t|
+    create_table :groups do |t|
       t.string :name
-      t.string :email
-      t.string :tel
-      t.references :group, index: true, foreign_key: true
-      t.boolean :sensei
+      t.string :room
+      t.string :task
 
       t.timestamps null: false
     end
