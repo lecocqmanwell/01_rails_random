@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
+    @groups = Group.all
     @people = Person.all
   end
 
