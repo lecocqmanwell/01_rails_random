@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing People</h1>
-
+<!-- listing people -->
 <table>
   <thead>
     <tr>
@@ -20,7 +20,7 @@
         <td><%= person.name %></td>
         <td><%= person.email %></td>
         <td><%= person.tel %></td>
-        <td><%= person.group %></td>
+        <td><%= person.group.name  unless person.group.nil?%></td>
         <td><%= person.sensei %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>
@@ -28,7 +28,7 @@
     <% end %>
   </tbody>
 </table>
-
+<!-- lising groups -->
 <br>
 <table>
   <thead>
@@ -46,9 +46,13 @@
         <td><%= group.name %></td>
         <td><%= group.room %></td>
         <td><%= group.task %></td>
+        <td><%= group.task %></td>
+
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <!-- put name under the groups -->
       <% group.people.each do |people| %>
          <tr>
            <td><%= people.name %></td>
@@ -61,3 +65,4 @@
 
 
 <%= link_to 'New Group ', new_group_path %>
+<%= link_to 'random', randomaction_path %>

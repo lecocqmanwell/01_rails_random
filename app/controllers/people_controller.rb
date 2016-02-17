@@ -8,6 +8,19 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
+
+
+  def random
+array_id = people.all.map{|x|x.id}
+while array_id.size > 0
+  Group.all.each do |group|
+a = array_id.sample
+Person.find(a).update_attributes(group_id: group.id) unless a.nil?
+array_id.delete(a)
+  end
+end
+redirect_to :root, notice: "job done!!"
+end
   # GET /people/1
   # GET /people/1.json
   def show

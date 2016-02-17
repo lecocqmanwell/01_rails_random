@@ -8,6 +8,19 @@ class GroupsController < ApplicationController
     @people = Person.all
   end
 
+    def random
+  array_id = Person.all.map{|x|x.id}
+  while array_id.size > 0
+    Group.all.each do |group|
+  a = array_id.sample
+  Person.find(a).update_attributes(group_id: group.id) unless a.nil?
+  array_id.delete(a)
+    end
+  end
+  redirect_to :root, notice: "job done!!"
+  end
+
+
   # GET /groups/1
   # GET /groups/1.json
   def show
@@ -57,7 +70,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to people_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
