@@ -7,7 +7,7 @@ lock '3.4.0'
 set :application, 'random3_test'
 set :repo_url, 'git@github.com:lecocqmanwell/01_rails_random.git'
 
-set :deploy_to, '/home/deploy/random3_test'
+set :deploy_to, '/home/deploy/01_rails_random'
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
