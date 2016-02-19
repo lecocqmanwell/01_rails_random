@@ -24,3 +24,7 @@ test:
 production:
   <<: *default
   database: db/productionpostgresql
+
+
+username: deploy
+password: Morefaya!
